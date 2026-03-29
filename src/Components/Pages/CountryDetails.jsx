@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 export default function CountryDetail({ countries }) {
   const { name: nameParam } = useParams();
+  console.log(nameParam)
   const navigate = useNavigate();
 
   const decodedName = nameParam.replace(/-/g, " ");
