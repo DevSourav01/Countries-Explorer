@@ -38,18 +38,26 @@ export default function CountryList({ search = "", region = "" }) {
 // Replace your loading div with this:
 if (loading) {
   return (
-    <div className="min-h-100 flex flex-col items-center justify-center gap-6 p-8">
-      <div className="w-20 h-20 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
-      
-      <div className="text-center">
-        <p className="text-2xl font-bold text-gray-700 mb-2">Loading Countries</p>
-      </div>
-    
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-9 p-2">
+      {Array.from({ length: 8 }).map((_, i) => (
+        <div key={i} className="rounded-xl overflow-hidden border border-gray-100 shadow-sm bg-white dark:bg-gray-400 dark:border-gray-400">
+          {/* Flag placeholder */}
+          <div className="h-40 bg-gray-200 animate-pulse" />
+          
+          {/* Text lines */}
+          <div className="p-5 flex flex-col gap-3">
+            <div className="h-4 bg-gray-200  rounded animate-pulse w-2/3" />
+            <div className="h-3 bg-gray-200  rounded animate-pulse w-full" />
+            <div className="h-3 bg-gray-200  rounded animate-pulse w-4/5" />
+            <div className="h-3 bg-gray-200  rounded animate-pulse w-1/2" />
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-9 p-2">
       {filtered.length === 0 ? (
         <p>Please Enter a Valid Country</p>
       ) : (
